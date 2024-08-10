@@ -1,11 +1,7 @@
-// one line export of array
-module.exports.items = ['item1','item2','item3'];
+const num1 = 23;
+const num2 = 20;
 
-// exporting an object using custom property
-const myObj = {
-    name: "Rocky",
-    age: "23",
-    id: "rc21"
+function addval(){
+    console.log(`addition is : ${num1 + num2}`)
 }
-
-module.exports.employee = myObj;
+addval()
