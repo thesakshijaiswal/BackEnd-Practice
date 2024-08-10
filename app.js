@@ -1,9 +1,6 @@
-const peter = "peter";
-const sam = "sam";
-const sayHi = require("./utils");
+const {peter, sam} = require("./utils")
+const sayHi = (name) => {
+    console.log(`hello there ${name}`);
+}
 sayHi(peter);
 sayHi(sam);
-
-//global variables in node: dirname, filename, require, module
-console.log(__dirname);
-console.log(__filename)

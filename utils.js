@@ -1,7 +1,8 @@
-const sayHi = (name) => {
-  console.log(`hello there ${name}`)
-}
-module.exports = sayHi;
+//shared var
+const peter = "peter";
+const sam = "sam";
+// local var
+const secretKey = "123SAmual"; 
 
-//we can check all exports of a particular file using code below
-console.log(module)
+//export required variables which can be accessed by any file
+module.exports = {peter,sam};
