@@ -1,0 +1,1 @@
+the combined msg: this is the first test text message, this is the second test message
