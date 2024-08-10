@@ -1,6 +1,3 @@
-const {peter, sam} = require("./utils")
-const sayHi = (name) => {
-    console.log(`hello there ${name}`);
-}
-sayHi(peter);
-sayHi(sam);
+const content = require('./utils');
+console.log(content.items[1])
+console.log(content.employee.id);

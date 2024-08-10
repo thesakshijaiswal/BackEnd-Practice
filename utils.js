@@ -1,8 +1,11 @@
-//shared var
-const peter = "peter";
-const sam = "sam";
-// local var
-const secretKey = "123SAmual"; 
+// one line export of array
+module.exports.items = ['item1','item2','item3'];
 
-//export required variables which can be accessed by any file
-module.exports = {peter,sam};
+// exporting an object using custom property
+const myObj = {
+    name: "Rocky",
+    age: "23",
+    id: "rc21"
+}
+
+module.exports.employee = myObj;
