@@ -1,0 +1,18 @@
+{
+  "name": "lect-2-http-module",
+  "version": "1.0.0",
+  "description": "Backend practice : Node + Express + MongoDB",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js",
+    "dev": "node --watch app.js"
+  },
+  "keywords": [
+    "backend",
+    "nodeJs",
+    "expressJs"
+  ],
+  "author": "Sakshi Jaiswal",
+  "license": "ISC"
+}
