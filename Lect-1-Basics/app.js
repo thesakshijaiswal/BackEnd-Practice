@@ -78,7 +78,28 @@ console.log('loading next task');
 
 // Optimizing the above code with promises [async read and write]
 
-const {readFile} = require("fs");
+const {readFile, writeFile} = require("fs");
+const util = require('util');
+// console.log(util)
+const readFileUtil = util.promisify(readFile);
+const writeFileUtil = util.promisify(writeFile);
+const readAsync = async () => {
+  try {
+    const firstMsg = await readFileUtil("./main/subFolder/msg.txt","utf8");
+    const secondMsg = await readFileUtil("./main/subFolder/msg-2.txt","utf8");
+    await writeFileUtil("./main/subFolder/promisify-result.txt",`This is done using promisify :${firstMsg}, ${secondMsg}`)
+    console.log(firstMsg, secondMsg);
+    
+  } catch (error) {
+    console.log(error)
+  }
+}
+readAsync()
+
+
+/*
+
+// Optimizing using promises
 
 const getText = (path) => {
   return new Promise((resolve, reject) => {
@@ -93,20 +114,6 @@ const getText = (path) => {
   })
 }
 
-const readAsync = async () => {
-  try {
-    const firstMsg = await getText("./main/subFolder/msg.txt");
-    const secondMsg = await getText("./main/subFolder/msg-2.txt");
-    console.log(firstMsg, secondMsg);
-    
-  } catch (error) {
-    console.log(error)
-  }
-}
-readAsync()
-
-
-/*
 getText("./main/subFolder/msg.txt")
 .then((result) => {
   console.log(result)
