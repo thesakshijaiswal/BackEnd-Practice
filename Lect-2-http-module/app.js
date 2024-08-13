@@ -4,6 +4,7 @@ const http = require('http');
 // console.log(http);
 const server = http.createServer((req,res) => {
 //  console.log(req)
+console.log("request");
 if(req.url === '/'){
     res.end("Welcome to our Home page!");
     return;
@@ -19,6 +20,8 @@ if(req.url === '/about'){
         `);
 })
 
-server.listen(5000);
+server.listen(5000, () => {
+  console.log("Server is listening to the port : 5000...")
+});
 
 
