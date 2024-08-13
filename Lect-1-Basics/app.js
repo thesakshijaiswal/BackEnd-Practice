@@ -1,7 +1,7 @@
 // Built in modules: os, path, fs, http
 
 // 1] os module
-
+/*
 const os = require('os');
 // console.log(os)
 const userData = {
@@ -74,3 +74,43 @@ fs.readFile("./main/subFolder/msg.txt","utf8",(err,result) => {
 })
 })
 console.log('loading next task');
+*/
+
+// Optimizing the above code with promises [async read and write]
+
+const {readFile} = require("fs");
+
+const getText = (path) => {
+  return new Promise((resolve, reject) => {
+    readFile(path,"utf8",(error,result) => {
+      if(error){
+        reject(error)
+      }
+      else{
+        resolve(result)
+      }
+    })
+  })
+}
+
+const readAsync = async () => {
+  try {
+    const firstMsg = await getText("./main/subFolder/msg.txt");
+    const secondMsg = await getText("./main/subFolder/msg-2.txt");
+    console.log(firstMsg, secondMsg);
+    
+  } catch (error) {
+    console.log(error)
+  }
+}
+readAsync()
+
+
+/*
+getText("./main/subFolder/msg.txt")
+.then((result) => {
+  console.log(result)
+}).catch((error) => {
+  console.log(error)
+})
+*/
