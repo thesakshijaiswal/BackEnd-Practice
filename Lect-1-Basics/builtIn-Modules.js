@@ -1,4 +1,4 @@
-// Built in modules: os, path, fs, http
+// Built in modules: os, path, fs, http, events
 
 // 1] os module
 
@@ -26,10 +26,10 @@ const path = require('path');
 //path seperator
 console.log(path.sep);
 //relative path
-const userPath = path.join("/main","subFolder","utils.js");
+const userPath = path.join("/main","subFolder","msg.txt");
 console.log(userPath);
 // absolute path
-console.log(path.resolve(__dirname,"main","subFolder","utils.js"));
+console.log(path.resolve(__dirname,"main","subFolder","msg.txt"));
 // base file 
 console.log(path.basename(userPath));
 
