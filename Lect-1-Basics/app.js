@@ -1,7 +1,7 @@
 // Built in modules: os, path, fs, http
 
 // 1] os module
-/*
+
 const os = require('os');
 // console.log(os)
 const userData = {
@@ -37,8 +37,9 @@ console.log(path.basename(userPath));
 
 // 3] fs:(file system) module
 
-//read and write file synchronously!
+/**************************read and write file synchronously!************************/
 
+/*
 const fs = require('fs');
 // console.log(fs)
 console.log('start');
@@ -47,9 +48,11 @@ fs.writeFileSync("./main/subFolder/resultSync.txt",`the result message: ${read}`
 console.log('task completed');
 console.log(read);
 console.log('loading next task');
+*/
 
-//read and write file Asynchronously!
 
+/************************read and write file Asynchronously!*****************************/
+/*
 console.log('start');
 fs.readFile("./main/subFolder/msg.txt","utf8",(err,result) => {
   if(err){
@@ -76,8 +79,8 @@ fs.readFile("./main/subFolder/msg.txt","utf8",(err,result) => {
 console.log('loading next task');
 */
 
-// Optimizing the above code with promises [async read and write]
-
+/**************************Optimizing the above code with promises [async read and write]***********************/
+/*
 const {readFile, writeFile} = require("fs");
 const util = require('util');
 // console.log(util)
@@ -95,11 +98,29 @@ const readAsync = async () => {
   }
 }
 readAsync()
+*/
+
+/**************************read and write file without util module**************************/
+const {readFile, writeFile} = require("fs").promises;
+const readAsyncFs = async () => {
+  try {
+    const first = await readFile("./main/subFolder/msg.txt","utf8");
+    const second = await readFile("./main/subFolder/msg-2.txt","utf8");
+    await writeFile("./main/subFolder/promisify-result.txt",`This is done using promisify :${first}, ${second}`,{flag:'a'})
+    console.log(first, second);
+    
+  } catch (error) {
+    console.log(error)
+  }
+}
+readAsyncFs()
 
 
 /*
 
-// Optimizing using promises
+/**************************Optimizing using promises .then and .catch**************************/
+
+/*
 
 const getText = (path) => {
   return new Promise((resolve, reject) => {
