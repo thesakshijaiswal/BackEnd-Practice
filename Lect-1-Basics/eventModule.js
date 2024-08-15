@@ -3,11 +3,11 @@
 const eventEmitter = require("events");
 const customEmitter = new eventEmitter();
 
-customEmitter.on("response",() => {
-  console.log('data Received!');
+customEmitter.on("response",(name, id) => {
+  console.log(`data Received! by name: ${name} with id: ${id}`);
 })
 customEmitter.on("response",() => {
   console.log('Another event to listen...');
 })
 
-customEmitter.emit("response");
+customEmitter.emit("response","john",23);
